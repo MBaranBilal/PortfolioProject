@@ -1,84 +1,27 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 
-@Html.Action("PartialHead", "Admin");
+@Html.Action("PartialHead", "Admin")
 
 <body>
     <div class="wrapper d-flex align-items-stretch">
-        
-        @Html.Action("PartialSideBar", "Admin");
 
-        <!-- Page Content  -->
+        @Html.Action("PartialSidebar", "Admin")
+
         <div id="content" class="p-4 p-md-5">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+            @Html.Action("PartialNavbar", "Admin")
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                        <span class="sr-only">Toggle Menu</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
-                    </button>
+            @RenderBody()
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Siteye Git</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">CV'mi indir</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Ayarlar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Mesajlar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Çıkış Yap</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-
-
-            <h2 class="mb-4">Sidebar #01</h2>
-
-            <table class="table table-bordered">
-                <tr>
-                    <th>Ürün ID</th>
-                    <th>Ürün Adı</th>
-                    <th>Kategori</th>
-                    <th>Sil</th>
-                    <th>Güncelle</th>
-                </tr>
-
-                <tr>
-                    <td>sa21asd54</td>
-                    <td>Domates</td>
-                    <td>Sebze</td>
-                    <td><button class="btn btn-danger">Sil</button></td>
-                    <td><button class="btn btn-success">Güncelle</button></td>
-                </tr>
-
-            </table>
         </div>
     </div>
 
-    <script src="/Content/sidebar-01/js/jquery.min.js"></script>
-    <script src="/Content/sidebar-01/js/popper.js"></script>
-    <script src="/Content/sidebar-01/js/bootstrap.min.js"></script>
-    <script src="/Content/sidebar-01/js/main.js"></script>
+    @Html.Action("PartialScripts", "Admin")
+
 </body>
 </html>

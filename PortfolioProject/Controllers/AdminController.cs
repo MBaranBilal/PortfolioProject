@@ -23,5 +23,15 @@ namespace PortfolioProject.Controllers
         {
             return PartialView();
         }
+
+        public PartialViewResult PartialNavBar()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult PartialScripts()
+        {
+            return PartialView();
+        }
     }
 }
