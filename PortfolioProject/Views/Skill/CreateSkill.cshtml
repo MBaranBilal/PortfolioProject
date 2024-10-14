@@ -1,18 +1,31 @@
-﻿
+﻿@model PortfolioProject.Models.Skill
+
 @{
     ViewBag.Title = "CreateSkill";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
 <h2 class="mb-4"> Yeni Yetenek Ekleme Sayfası</h2>
-
 <form method="post">
-    <label>Yetenek Başlığı</label>
-    <input type="text" name="SkillName" class="form-control" />
+    @Html.HiddenFor(x => x.SkillId)
+    <label style="color:orange"><b>Yetenek</b></label>
+    @Html.TextBoxFor(x => x.SkillName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SkillName, "", new { @class = "badge badge-danger" })
     <br />
-    <label>Yetenek Değeri</label>
-    <input type="text" name="Rate" class="form-control" />
+    <label style="color:orange"><b>Oran</b></label>
+    @Html.TextBoxFor(x => x.Rate, new { @class = "form-control" })
     <br />
-    <button class="btn btn-info">Yeteneği Ekle</button>
+    <label style="color:orange"><b>İkon</b></label>
+    @Html.TextAreaFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <label style="color:orange"><b>Durum</b></label>
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SkillName, "", new { @class = "badge badge-danger" })
+    <br />
+    <button class="btn btn-success">
+        <span class="btn-label">
+            <i class="fa fa-check"></i>
+        </span>
+        Eğitim Bilgisi Ekle
+    </button>
 </form>
-

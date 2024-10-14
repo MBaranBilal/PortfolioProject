@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace PortfolioProject.Controllers
 {
@@ -13,9 +15,9 @@ namespace PortfolioProject.Controllers
 
         DbMyPortfolioNightEntities context=new DbMyPortfolioNightEntities();
 
-        public ActionResult SkillList()
+        public ActionResult SkillList(int sayfa=1)
         {
-            var values=context.Skill.ToList();
+            var values=context.Skill.ToList().ToPagedList(sayfa,5);
             return View(values);
         }
 
@@ -28,9 +30,13 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult CreateSkill(Skill skill) 
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateSkill");
+            }
             context.Skill.Add(skill);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("SkillList");
         }
 
         public ActionResult DeleteSkill(int id) 
@@ -46,6 +52,32 @@ namespace PortfolioProject.Controllers
         {
             var value = context.Skill.Find(id);
             return View(value);
+        }
+        [HttpPost]
+        public ActionResult UpdateSkill(Skill skill)
+        {
+            var value = context.Skill.Find(skill.SkillId);
+            value.SkillName = skill.SkillName;
+            value.Rate = skill.Rate;
+            value.Icon = skill.Icon;
+            value.Status = skill.Status;
+            context.SaveChanges();
+            return RedirectToAction("SkillList");
+        }
+
+        public ActionResult ChangeSkillStatusToTrue(int id)
+        {
+            var skill = context.Skill.Find(id);
+            skill.Status = true;
+            context.SaveChanges();
+            return RedirectToAction("SkillList");
+        }
+        public ActionResult ChangeSkillStatusToFalse(int id)
+        {
+            var skill = context.Skill.Find(id);
+            skill.Status = false;
+            context.SaveChanges();
+            return RedirectToAction("SkillList");
         }
     }
 }

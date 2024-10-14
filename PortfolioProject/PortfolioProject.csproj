@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,15 +134,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\About_adController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
     <Compile Include="Controllers\ExperienceController.cs" />
+    <Compile Include="Controllers\GraphicsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InternshipController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PortfolioController.cs" />
+    <Compile Include="Controllers\ReferanceController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
+    <Compile Include="Controllers\SocialMediaController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,6 +233,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Pigra-1.0.0\css\bootstrap.min.css" />
     <Content Include="Content\Pigra-1.0.0\css\style.css" />
     <Content Include="Content\Pigra-1.0.0\img\about.jpg" />
@@ -228,6 +242,7 @@
     <Content Include="Content\Pigra-1.0.0\img\blog-3.jpg" />
     <Content Include="Content\Pigra-1.0.0\img\blog-4.jpg" />
     <Content Include="Content\Pigra-1.0.0\img\header-img.jpg" />
+    <Content Include="Content\Pigra-1.0.0\img\MVCsite.jpg" />
     <Content Include="Content\Pigra-1.0.0\img\Portfolio-1.jpg" />
     <Content Include="Content\Pigra-1.0.0\img\portfolio-2.jpg" />
     <Content Include="Content\Pigra-1.0.0\img\portfolio-3.jpg" />
@@ -547,6 +562,25 @@
     <Content Include="Views\Default\PartialPortfolio.cshtml" />
     <Content Include="Views\Default\PartialTestomonial.cshtml" />
     <Content Include="Views\Default\PartialInternship.cshtml" />
+    <Content Include="Views\About_ad\Index.cshtml" />
+    <Content Include="Views\Education\UpdateEducation.cshtml" />
+    <Content Include="Views\Internship\InternshipList.cshtml" />
+    <Content Include="Views\Internship\CreateInternship.cshtml" />
+    <Content Include="Views\Internship\UpdateInternship.cshtml" />
+    <Content Include="Views\Service\ServiceList.cshtml" />
+    <Content Include="Views\Service\CreateService.cshtml" />
+    <Content Include="Views\Service\UpdateService.cshtml" />
+    <Content Include="Views\Portfolio\PortfolioList.cshtml" />
+    <Content Include="Views\Portfolio\CreatePortfolio.cshtml" />
+    <Content Include="Views\Portfolio\UpdatePortfolio.cshtml" />
+    <Content Include="Views\Referance\ReferanceList.cshtml" />
+    <Content Include="Views\Referance\CreateReferance.cshtml" />
+    <Content Include="Views\Referance\UpdateReferance.cshtml" />
+    <Content Include="Views\Graphics\Index.cshtml" />
+    <Content Include="Views\Message\ViewMessage.cshtml" />
+    <Content Include="Views\SocialMedia\SocialMediaList.cshtml" />
+    <Content Include="Views\SocialMedia\CreateSocialMedia.cshtml" />
+    <Content Include="Views\SocialMedia\UpdateSocialMedia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

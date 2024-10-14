@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ViewMessage";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2>Mesaj Görüntüleme</h2>
+<div class="card">
+    <div class="card-header">
+        @ViewBag.mail
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.subject</h5>
+        <p class="card-text">@ViewBag.message</p>
+        <a href="/Message/Inbox" class="btn btn-primary">Mesajlara Dön</a>
+    </div>
+</div>
+

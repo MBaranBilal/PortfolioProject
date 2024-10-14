@@ -34,7 +34,6 @@ namespace PortfolioProject.Controllers
         {
             contact.SendDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             contact.IsRead = false;
-
             context.Contact.Add(contact);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -65,7 +64,8 @@ namespace PortfolioProject.Controllers
             ViewBag.phone=context.Profile.Select(x=>x.Phone).FirstOrDefault();
             ViewBag.github=context.Profile.Select(x=>x.Github).FirstOrDefault();
             ViewBag.imageUrl=context.Profile.Select(x=>x.ImageUrl).FirstOrDefault();
-            return PartialView();
+            var values=context.SocialMedia.ToList();
+            return PartialView(values);
         }
 
         public PartialViewResult PartialAbout()

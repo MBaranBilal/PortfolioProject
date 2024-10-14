@@ -1,0 +1,30 @@
+﻿@model List<PortfolioProject.Models.Internship>
+@{
+    ViewBag.Title = "InternshipList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2>Staj Listem</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>        
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.InternshipID</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td><a href="/Internship/DeleteInternship/@item.InternshipID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Internship/UpdateInternship/@item.InternshipID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Internship/CreateInternship/" class="btn btn-info">Yeni Staj Girişi</a>
+

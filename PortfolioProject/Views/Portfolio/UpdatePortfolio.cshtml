@@ -1,25 +1,26 @@
-﻿@model PortfolioProject.Models.Education
+﻿@model PortfolioProject.Models.Portfolio
 @{
-    ViewBag.Title = "CreateEducation";
+    ViewBag.Title = "UpdatePortfolio";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Yeni Eğitim Bilgisi</h2>
+<h2 class="mb-4">Portfolyo Güncelleme Sayfası</h2>
 <form method="post">
+    @Html.HiddenFor(x=>x.FeatureId)
     <label style="color:orange"><b>Başlık</b></label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
     <br />
     <label style="color:orange"><b>Alt Başlık</b></label>
     @Html.TextBoxFor(x => x.SubTitle, new { @class = "form-control" })
     <br />
-    <label style="color:orange"><b>Açıklama</b></label>
-    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    <label style="color:orange"><b>Image</b></label>
+    @Html.TextAreaFor(x => x.Image, new { @class = "form-control" })
     <br />
-    <button class="btn btn-success">
+    <button class="btn btn-warning">
         <span class="btn-label">
-            <i class="fa fa-check"></i>
+            <i class="fa fa-check-square"></i>
         </span>
-        Eğitim Bilgisi Ekle
+        Hizmet Bilgisi Güncelle
     </button>
 </form>
 

@@ -3,24 +3,56 @@
     ViewBag.Title = "Inbox";
     Layout = "~/Views/Admin/Index.cshtml";
 }
-
+<h2>Gelen Mesajlar</h2>
 <table class="table table-bordered">
     <tr>
         <th>#</th>
         <th>Gönderen</th>
-        <th>Konu</th>
-        <th>Durum</th>
+        <th>Tarih</th>
+        <th>Kategori</th>
+        <th>Okundu Bilgisi</th>
         <th>Mesajı Aç</th>
         <th>Mesajı Sil</th>
     </tr>
 
     @foreach (var item in Model)
     {
+        string subjectColor = "";
+        switch (item.Category.CategoryName)
+        {
+            case "Teşekkür":
+                subjectColor = "badge bg-danger";
+                break;
+            case "Öneri":
+                subjectColor = "badge bg-success";
+                break;
+            case "Proje Talebi":
+                subjectColor = "badge bg-primary";
+                break;
+            case "Referans":
+                subjectColor = "badge bg-warning";
+                break;
+            case "Toplantı":
+                subjectColor = "badge bg-warning";
+                break;
+            case "Görüşme":
+                subjectColor = "badge bg-warning";
+                break;
+            case "Reklam":
+                subjectColor = "badge bg-pink";
+                break;
+            case "Diğer":
+                subjectColor = "badge bg-secondary";
+                break;
+            default:
+                subjectColor = "badge bg-dark";
+                break;
+        }
         <tr>
             <td>@item.ContactID</td>
             <td>@item.NameSurname</td>
             <td>@item.SendDate</td>
-            <td>@item.Subject</td>
+            <td><span class="@subjectColor p-2" style="color:white; font-size: small">@item.Category.CategoryName</span></td>
             @if (item.IsRead == false)
             {
                 <td><a href="/Message/ChangeMessageStatusToTrue/@item.ContactID" class="btn btn-info">Okundu Olarak İşaretle</a></td>
@@ -29,8 +61,8 @@
             {
                 <td><a href="/Message/ChangeMessageStatusToFalse/@item.ContactID" class="btn btn-dark">Okunmadı Olarak İşaretle</a></td>
             }
-            <td><a href="#" class="btn btn-warning">Mesajı Aç</a></td>
-            <td><a href="#" class="btn btn-danger">Mesajı Sil</a></td>
+            <td><a href="/Message/ViewMessage/@item.ContactID" class="btn btn-warning">Mesajı Aç</a></td>
+            <td><a href="/Message/DeleteMessage/@item.ContactID" class="btn btn-danger">Mesajı Sil</a></td>
         </tr>
     }
 </table>

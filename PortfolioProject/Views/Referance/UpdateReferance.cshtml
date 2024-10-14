@@ -1,0 +1,26 @@
+﻿@model PortfolioProject.Models.Testimonial
+@{
+    ViewBag.Title = "UpdateReferance";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Referans Güncelleme Sayfası</h2>
+<form method="post">
+    @Html.HiddenFor(x=>x.TestimonialID)
+    <label style="color:orange"><b>İsim-Soyisim</b></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label style="color:orange"><b>Yorum</b></label>
+    @Html.TextBoxFor(x => x.Comment, new { @class = "form-control" })
+    <br />
+    <label style="color:orange"><b>Yıldız Sayısı</b></label>
+    @Html.TextAreaFor(x => x.Star, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">
+        <span class="btn-label">
+            <i class="fa fa-check-square"></i>
+        </span>
+        Referans Bilgisi Güncelle
+    </button>
+</form>
+
